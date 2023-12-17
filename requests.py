@@ -8,7 +8,7 @@ targeturl = "https://schuh.wtf"
 nrequests = 100
 
 def set_console_title(title, response_time):
-    ctypes.windll.kernel32.SetConsoleTitleW(f"{title}Response Time: {response_time:.2f} seconds")
+    ctypes.windll.kernel32.SetConsoleTitleW(f"{title} Response Time: {response_time:.2f} seconds")
 
 def send_request(url, request_number, response_times):
     try:
@@ -16,7 +16,7 @@ def send_request(url, request_number, response_times):
         response = requests.get(url)
         end_time = time.time()
         response_time = end_time - start_time
-        set_console_title(f"URL: {url} - Requests: {request_number + 1} - ", response_time)
+        set_console_title(f"URL: {url} - Requests: {request_number + 1} -", response_time)
         response_times.append(response_time)
     except requests.exceptions.RequestException as e:
         print(RED + f"Request failed: {e}" + ENDC)
