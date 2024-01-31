@@ -12,9 +12,9 @@ def set_console_title(title, response_time):
 
 def send_request(url, request_number, response_times):
     try:
-        start_time = time.time()
+        start_time = time.perf_counter()
         response = requests.get(url)
-        end_time = time.time()
+        end_time = time.perf_counter()
         response_time = end_time - start_time
         set_console_title(f"URL: {url} - Requests: {request_number + 1} -", response_time)
         response_times.append(response_time)
